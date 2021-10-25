@@ -27,6 +27,9 @@
             <button class="btn btn-outline-success" type="submit">Search</button>
         </form>
         -->
+        <div class="d-flex">
+            <router-link to="/login" class="text-light">Login</router-link>
+        </div>
         </div>
     </div>
     </nav>
