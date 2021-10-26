@@ -15,6 +15,7 @@ $usuario = (isset($_POST['user'])) ? $_POST['user'] : '';
 $password = (isset($_POST['pass'])) ? $_POST['pass'] : '';
 
 $pass = hash("sha256", $password);
+
 switch ($opcion) {
 	case 1:
 		$consulta='SELECT user_nombre, user_rol FROM usuarios WHERE user_nombre="'.$usuario.'" AND user_pass="'.$pass.'";';

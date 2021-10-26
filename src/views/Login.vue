@@ -93,10 +93,15 @@ export default {
                     res=>{
                         if(res.status==200)
                         {
-                            console.log(res.data)
-                            //this.retorno = res.data[0]
+                            //console.log(res.data)
+                            this.retorno = res.data[0]
                             //console.log(this.retorno)
-                            
+                            if(!this.retorno)
+                            {
+                                this.merror = "Datos erroneos"
+                            }else{
+                                console.log('viene data')
+                            }
                         }else{
                             this.merror = "Error de Data"
                         }
