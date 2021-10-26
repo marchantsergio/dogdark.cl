@@ -57,7 +57,8 @@ export default {
             v$: useValidate(),
             userlog:'',
             passlog:'',
-            merror:''
+            merror:'',
+            retorno:[]
         }
     },
     validations(){
@@ -81,9 +82,9 @@ export default {
                 //consultamos a la base de datos
                 axios
                 .post(
-                    Global.url + 'consultas/',
+                    Global.urirl + 'consulta/',
                     {
-                        opcion:2,
+                        opcion:1,
                         user: this.userlog,
                         pass: this.passlog
                     }
@@ -92,9 +93,9 @@ export default {
                     res=>{
                         if(res.status==200)
                         {
-                            //this.retorno=res.data[0]
-                            //console.log(res)
-                            console.log('probando')
+                            console.log(res.data)
+                            //this.retorno = res.data[0]
+                            //console.log(this.retorno)
                             
                         }else{
                             this.merror = "Error de Data"
