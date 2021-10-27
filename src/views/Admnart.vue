@@ -23,6 +23,9 @@
                         toolbar2: 'image | media emoticons | link openlink unlink pagebreak preview | code codesample fullscreen',
                         language: 'es',
                         height:400,
+                        external_filemanager_path:'/filemanager/',
+                        filemanager_title:'Responsive Filemanager',
+                        external_plugins: { 'filemanager' : '/filemanager/plugin.min.js'}
                         }"
                         v-model="contenido"
                     />
