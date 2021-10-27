@@ -28,7 +28,12 @@
         </form>
         -->
         <div class="d-flex">
-            <router-link to="/login" class="text-light">Login</router-link>
+            <div v-if='usuario==""'>
+                <router-link to="/login" class="text-light">Login</router-link>
+            </div>
+            <div v-else>
+                <router-link to="/panel" class="text-light">Panel</router-link>
+            </div>
         </div>
         </div>
     </div>
@@ -36,6 +41,19 @@
 </template>
 <script>
 export default {
-    name:'Menu'
+    name:'Menu',
+    data(){
+        return{
+            usuario:'',
+            rol:''
+        }
+    },
+    mounted(){
+        if(localStorage.getItem('user'))
+        {
+            this.usuario = localStorage.getItem('user')
+            this.rol = localStorage.getItem('rol')
+        }
+    }
 }
 </script>

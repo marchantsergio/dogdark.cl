@@ -73,6 +73,12 @@ export default {
             }
         }
     },
+    mounted(){
+        if(localStorage.getItem('user'))
+        {
+            this.$router.push("/")
+        }
+    },
     methods:{
         login(){
             this.merror = ''
@@ -100,7 +106,12 @@ export default {
                             {
                                 this.merror = "Datos erroneos"
                             }else{
-                                console.log('viene data')
+                                //console.log('viene data')
+                                //console.log(this.retorno.user_nombre)
+                                //console.log(this.retorno.user_rol)
+                                localStorage.setItem('user', this.retorno.user_nombre)
+                                localStorage.setItem('rol', this.retorno.user_rol)
+                                this.$router.push("/")
                             }
                         }else{
                             this.merror = "Error de Data"

@@ -11,6 +11,12 @@ export default {
     name:'Admart',
     components:{
         Menuadm
+    },
+    mounted(){
+        if(localStorage.getItem('rol')!=="administrador")
+        {
+            this.$router.push('/login')
+        }
     }
 }
 </script>

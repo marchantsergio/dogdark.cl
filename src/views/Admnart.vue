@@ -69,6 +69,12 @@ export default {
             console.log(this.contenido)
             console.log(this.estado)
         }
+    },
+    mounted(){
+        if(localStorage.getItem('rol')!=="administrador")
+        {
+            this.$router.push('/login')
+        }
     }
 }
 </script>

@@ -13,8 +13,7 @@
                 Sistema
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <router-link to="/adm/admin" class="dropdown-item">Administración</router-link>
                 <li><hr class="dropdown-divider"></li>
                 <li><a class="dropdown-item" href="#">Something else here</a></li>
             </ul>
@@ -30,6 +29,9 @@
                 </li>
                 <li>
                     <router-link to="/adm/admnart" class="dropdown-item">Nuevo artículo</router-link>
+                </li>
+                <li>
+                    <router-link to="/" class="dropdown-item">Categorías</router-link>
                 </li>
                 <li><hr class="dropdown-divider"></li>
                 <li>

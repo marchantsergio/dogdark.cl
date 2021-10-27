@@ -34,7 +34,7 @@ switch ($opcion) {
         exit();
 		break;
 	case 3:
-		$consulta='SELECT * FROM post ORDER BY id_post DESC';
+		$consulta='SELECT * FROM post ORDER BY post_id DESC';
 		$resultado = $conexion->prepare($consulta);
         $resultado->execute();
         $blog = $resultado->fetchAll(PDO::FETCH_ASSOC);
