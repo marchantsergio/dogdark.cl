@@ -1,0 +1,16 @@
+Wa³cz, 01.03.97r
+
+            SMART PLAYER (SP)
+
+   Program poszukuje w pamiêci modu³ów
+MPT. Po znalezieniu mo¿na je odtwarzaæ,
+zmieniaæ ich adres i zgrywaæ. Po wyj-
+œciu z programu mo¿na do niego powróciæ
+wpisuj¹c z poziomu DOS-a 'RUN 2000'.
+
+ ¯yczê udanej pracy z S.P.
+
+                         Charlie/A.R.
+
+   Player MPT 2.4 by Jaskier/TQa...
+

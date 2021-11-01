@@ -1,0 +1,120 @@
+---------------------------------------
+                               31.10.95
+                   CONVERTER
+                         programmed by
+                        Leslie of TIGHT
+                        
+---------------------------------------
+
+   W³aœnie czytasz dokumentacjê progra-
+mu,  który s³u¿y  do konwersji sampli w
+formacie Amigi, czyli takich, które u¿y
+wane s¹ przez wszelkiego rodzaju amigo-
+wskie trackery. Program ten powsta³  do
+potrzeb w³asnych, ale...
+
+Program przyjmuje pliki o rozszerzeniu
+*.SAM. Wystarczy posiadaæ stacjê z mo¿-
+liwoœci¹ czytania dysków z PC i kumpla
+który posiada modu³y oraz stary ale do
+bry  player:  Module  Player. Programik
+ten oprócz odtwarzania modu³ów oferuje
+równie¿  mo¿liwoœæ ods³uchu  poszczegó-
+lnych sampli jak równie¿ zgrania ich na
+dysk z domyœlnym rozszerzeniem .SAM.
+Mo¿emy  równierz skorzystaæ z dysków  z
+instrumentami  do amigowskich trackerów
+i przekopiowaæ je na PC a potem na Ata-
+ri.
+
+To w³aœciwie by³ opis sk¹d wzi¹æ pliki.
+Teraz o samym programie.
+
+Obs³uga jest bajecznie prosta. Podœwie-
+tleniem  przemieszczamy  siê za  pomoc¹
+klawiszy  kursora.  Dodatkowo do ka¿dej
+podœwietlonej funkcji wyœwietlana  jest
+podpowiedŸ. Teraz co i jak.
+
+---------------------------------------
+1. Source - aktywna dopiero  po wywo³a-
+   niu funkcji DIR.  U¿ywaj¹c  klawiszy
+   kursora góra, dó³, mo¿emy wybraæ po-
+   ¿¹dany plik i zatwierdziæ go  klawi-
+   szem RETURN.  Pliki przewijane s¹  w
+   kó³ko.
+
+2. Target - aktywna dopiero  po wywo³a-
+   niu funkcji Conv. Wpisujemy za pomo-
+   c¹ klawiatury nazwê pliku i  zatwie-
+   rdzamy klawiszem RETURN. Jeœli  pod-
+   czas wpisywania, nazwa osi¹gnie d³u-
+   goœæ 8-miu znaków,  to zostanie  ona
+   automatycznie  zaakceptowana i  pro-
+   gram przyst¹pi do zapisu pliku.
+   Podczas wpisywania nazwy, dzia³a kla
+   wisz DEL.
+
+       Uwaga! Program nagrywa sample  z
+   nag³ówkami DOSu. Adres ustawiony je-
+   st na sztywno na $4000. Plik taki mo
+   ¿na bezpoœrednio za³adowaæ do MPT.
+
+3. Freq - wciœniêcie  RETURN   powoduje
+   prze³¹czenie czêstotliwoœci pomiêdzy
+   7.5 a 15 kHz.
+
+4. Dir - odczytuje katalog dysku do lo-
+   kalnego bufora, do którego potem mo-
+   ¿emy siê odwo³ywaæ, bez koniecznoœci
+   ponownego u¿ywania tej funkcji (chy-
+   ba ¿e zmieniamy dysk). Uwaga!!!
+   Polecenie DIR czyta katalog stacji o
+   numerze widocznym w oknie SOURCE D#:
+
+5. Drive - naciskanie  RETURN  powoduje
+   zmianê numeru stacji Ÿród³owej. Jeœ-
+   li przy naciœniêciu RETURN wciœniêty
+   by³ dodatkowo klawisz SHIFT, to wte-
+   dy zmieniany  jest numer stacji  dla
+   pliku Ÿród³owego.
+
+6. Quit - to chyba wiemy. Wyjœcie  jest
+   tak¿e mo¿liwe w ka¿dej chwili  przez
+   bardzo u¿yteczny klawisz ESC.
+
+---------------------------------------
+
+Drugi, równie¿ po¿yteczny programik s³u
+¿y do ods³uchu sampli. Odczytuje on sa-
+mple zarówno z nag³ówkami, jak i bez na
+g³ówków. Obs³uga podobna do poprzednika
+
+Wydajê mi siê, ¿e dok³adny opis jest ra
+czej zbêdny. Wyjœcie do DOSu przez kla-
+wisz ESC.
+
+Jeœli przez "przypadek" wywo³asz funkc-
+cjê Sample, to mo¿na z niej wyjœæ przez
+ESC bez ³adowania sampla.
+
+Myœlê, ¿e to wszystko, co mo¿na by napi
+saæ o obu programach. Mi³ej pracy ¿yczy
+potencjalnym posiadaczom
+                        LESLIE of TIGHT
+
+Jeœli chcia³byœ skontaktowaæ siê ze mn¹
+to  mo¿esz  przys³aæ list  lub dysk  na
+adres:         Grzegorz ¯y³a
+          Politechnika Czêstochowska
+             Dom studenta nr 5
+           ul. Dekabrystów 26/30
+            42-200 Czêstochowa
+               pok. 930
+lub wys³aæ list poczt¹ elektroniczn¹ na
+adres:
+---------------------------------------
+       leslie@matinf.pcz.czest.pl
+---------------------------------------
+
+

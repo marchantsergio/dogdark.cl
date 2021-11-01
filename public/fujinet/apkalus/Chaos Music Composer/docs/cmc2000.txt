@@ -1,0 +1,137 @@
+z
+cCHAOS MUSIC COMPOSER 2000
+cverze 2.02
+
+
+     je šesti kanálový (tři + tři) composer. Obsahuje své vlastní diskové i kazetové utility - nepotřebuje proto DOS nebo jiné operační systémy.
+     základní obrazovka je rozdělena na hlavní tři díly : nahoře je prostor instrumentu (nástrojů), vlevo pak prostor paternů (hudebních vzorků) a nakonec uprostřed je plocha songu (hudby, kde jsou zapsána čísla paternů, které se budou hrát). Mezi jednotlivými okny se přepínáte pomocí TAB.
+
+     SONG...
+
+     je místo, odkud můžete provádět nejvíce povelů.
+
+     řídící povely :
+
+- uvádí se v prvním sloupci hudby a řídí systém hraní hudby. Zadat je lze jen ze SONG okna a musíte stát na prvním sloupci. Povel platí pro levý i pravý kanál současně.
+
+     shft+B ........ (PLAY AGAIN) - symbol dvou šipek směrem dolů. Hudba se spustí od začátku, případně od místa, kde se vyskytuje jiné shft+B nebo shft+S
+     shft+S ........ (STOP) - symbol dvou čtverečků. Hudba se na tomto symbolu zastaví.
+     shft+U ........ (UP) - hudba se přesune o uvedený počet řádků vzhůru. Počet se uvádí na druhém místě.
+     shft+D ........ (DOWN) - jako UP, ale směrem dolů.
+     shft+J ........ (JUMP) - skok na libovolný řádek hudby. Číslo řádku uvedeno na druhém místě.
+     shft+R ........ (REPEAT) - zajistí opakování následujících x řádků y krát. Forma R: XX YY
+     shft+V ........ (VOLUME) - nastaví jinou nucenou hlasitost hudby. Zde je rozdíl oproti nižším verzím, a to v systému zadávání. Zadává se hlasitost pro všechny kanály stylem :
+cV: -- -- -- -- --
+cL1 L2 L3 R1 R2 R3
+     shft+P ........ (PAUSE) - pozastaví hraní hudby na dobu uvedenou za pause. Doba se uvádí v padesátinách sekundy. P: xx yy.
+     shft+M ........ (MODE) - určuje mód hraní. Mode 1 je Double play a Mode 0 je normal play.
+     shft+I ........ (INCREASE) - umožňuje zadat navýšení celého paternu naráz pro všechny kanály.
+cI: -- -- -- -- --
+cL1 L2 L3 R1 R2 R3
+
+     editační povely pro pohyb songem :
+
+     ctrl+e ........ o pět řádků vzhůru
+     ctrl+d ........ o pět řádků dolů
+     ctrl+c ........ jdi na první řádek a sloupec
+     ctrl+p ........ hraj hudbu
+     ctrl+a ........ změna adresy hudby
+     ctrl+n ........ změna jména hudby
+     ctrl+t ........ tempo hudby
+     ctrl+m ........ změna adresy playera a jeho následné nahrání na přístroj naposled použitý pod jménem uvedeným v kolonce name.
+     ctrl+s ........ save hudby na kazetu ve formátu Turbo
+     ctrl+l ........ load hudby z kazety ve formátu Turbo
+     inverse ....... změna módu
+     ctrl+shft+DBS . kompletní vymazání songu
+     tab ........... přechod mezi okny
+     shft+esc ...... přechod do diskových utilit
+     ctrl+i......... umožňuje zadat 18 písmenné info k hudbě
+
+     příkazy k editování instrumentu :
+
+     ctrl+e ........ editování instrumentu
+     ctrl+g ........ předdefinované nástroje (u verze 2.02 nejsou k dispozici - ve vývoji je verze se setupem, kde si vyrobíte a pojmenujete své vlastní instrumenty a pak se vám budou objevovat pod ctrl+g)
+     shft+up od down zajistí nárust či pokles celé obalové křivky hlasitostí
+
+     =============   ab x
+     ===obalová===   cd
+     ====křivka===   ef
+     =============   gh
+
+     --zkreslení--  ijkl
+     --navýšení---  mnop
+
+     a ....... vzdálenost harmonie
+     b ....... sledovací funkce - viz níže
+     c ....... navýšení
+     d ....... rychlost nárůstu nebo poklesu
+     e ....... nepoužito
+     f ....... nepoužito
+     g+h ..... doba trvání tónu
+
+     x ....... lze nastavit pokud stojíte u ab pomocí shft up or down a vyjadřuje nárust nebo pokles tónu
+
+     sledovací funkce :
+   0...........normální funkce
+   1...........kolísání i v obalové křivce
+   2...........stejné jako 1
+   3...........basová tabulka
+   4...........dvojtón
+   5+6.........dvojtón s propustí
+   7...........16-bitový kanál
+
+     ijklmnop....vyjadřuje navýšení, které se cyklicky střídá. i pak j pak k... Tím lze dosáhnout vibrací. Při sledovací funkci 1 se uplatňuje i během obalové křivky.
+
+     povely v patern módu :
+
+     ctlr+p ..... přehrát patern od pozice kde se nalézá
+     ctrl+shft+p .. přehrát patern od začátku (nefunguje z Qmegu !)
+     ctrl+t ..... umístění ukazovátka pro funkce shft+insert
+     ctrl+up or down umožňuje měnit oktávu ve které se tón nalézá
+     ctrl+v ..... alternativní volume pro následující tón. Volume určuje aktuální instrument. (INST=5,VOL=5...)
+
+     mezi další funkce patří například nucené vypínání kanálů, které se provede SHFT+číslo kanálu (1-6).
+     
+     v diskových utilitách jsou všechny povely vypsány. Za zmínku stojí jenom to, že vybraný soubor nahrajete pomocí ctrl+l nebo jednoduše Return. K uložení souboru slouží ctrl+s a ukládá se pod jménem uvedeným v name. V případě, že již soubor s tímto názvem existuje, budete upozorněni.
+
+     PLAYER který získáte pomocí ctrl+m začíná takto :
+
+     JMP BASICRUN ... pro zapnutí z Basicu
+     JMP SETSONG ... pro nastavení ze strojáku
+     JMP VBI ... vlastní VBI program - končí RTS !
+
+     VOLUME ... okamžité volume kanálů (pro eq...)
+     VOLUME ... nucené volume
+     OFF ... stav vypnutí kanálů
+     DOUBLE ... stav módu
+
+přímým přepisem můžete ovlivnit nucené volume, vypnutí kanálů a mód. Pouze do té doby, než bude v songu uvedeno jinak. Nevztahuje se na vypnutí kanálů.
+
+     V Basicu vypadá spuštění následovně :
+
+     A=USR(PLAYER,X,Y,A)
+
+     kde x,y,a představuje registry stejně jako u strojového programu, kde se spuštění provede obdobně :
+
+     LDA #A
+     LDX #X
+     LDY #Y
+     JSR PLAYER+3
+
+     kde x a y jsou pomocné parametry závisející na funkci, která je určena pomocí A.
+
+     0 ........ v X kolikátý song pustit. Songy se oddělují pomocí STOP nebo PLAY AGAIN.
+     16 ....... spustit od řádku X
+     32 ....... slouží pro přehrávání jednotlivých tónů
+     48 ....... v X nové tempo
+     64 ....... STOP + čisti kanály
+     80 ....... STOP + dohraj
+     96 ....... pokračuj v hraní
+     112 ...... hlavní inicializace, kde v X je dolní byte adresy hudby a v Y horní.
+
+
+     Přeji vám hodně příjemných chvil s zatím nejlepší verzí CMC s odstraněnými chybami v disk utilitách a v hraní hudby.
+
+     6.11.1999 v PB        autor DAVID SPILKA
+
+     s jakýmkoliv dotazem se obracejte na číslo 0604 784 724 nebo na email DATRI#SEZNAM.CZ

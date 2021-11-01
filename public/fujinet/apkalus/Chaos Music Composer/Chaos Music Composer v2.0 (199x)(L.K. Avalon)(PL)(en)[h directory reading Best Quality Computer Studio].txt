@@ -1,0 +1,10 @@
+Chaos Music Composer poprawiony przez
+Best Quality Computer Studio.
+Poprawka dotyczy³a rozszerzenia CMC o
+opcjê odczytu katalogu dysku.
+Klawisze:
+
+START  - katalog *.*
+SELECT - katalog *.CMC
+OPTION - katalog *.REP
+

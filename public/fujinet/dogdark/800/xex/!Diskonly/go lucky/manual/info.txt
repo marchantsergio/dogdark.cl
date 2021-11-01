@@ -1,0 +1,24 @@
+go lucky - v1.1
+---------------
+a board game for ATARI 8Bit computers
+
+- code + idea: PPs
+- music + sfx: miker
+- started to code: 30th March 2020
+- last code changes: 23rd December 2020
+- last new level: 33, 23rd December 2020
+- 64kB RAM, XL or XE plus disc drive and joystick needed
+- tested on NTSC (many thanks _The Doctor__ @atariage) and PAL
+- game for 1 to 4 players – humans and CPU controlled players are possible
+
+- rated 7th of 13 by the people who voted for the contest
+- included here: game, manual and manual to create own levels
+
+- additions since ABBUC e.V. SWC 2020 edition: more levels, get some cash when
+  colleted all tiles and then win 'get all tiles' at fortune wheel, some better
+  input options at game menu and some small errors removed
+
+In this board game your aim is to get rich as soon as possible. To reach this aim
+you should raise your money by buying plots and getting rent each time another
+player lands on your owned plots. Once you land on your own plot, you can invest
+money to raise the rent of it.

@@ -1,0 +1,37 @@
+Przerobi³em player do cmc (na zauwa¿alnie krótszy) wzoruj¹c siê na wersji playera od Jaskiera, a wiêc z istotnymi poprawkami dla prawid³owego odtwarzania wszystkich poprawnie z³o¿onych muzyczek (bez nieoczekiwanych niespodzianek).
+Postanowi³em zaimplementowaæ ten player do programu kompozera, aby da³o siê bez koniecznoœci asembacji kodu Ÿród³owego (którego np. mo¿e w danym momencie brakowaæ pod rêk¹) generowaæ player (?.REP) do muzyczki dowolnie ulokowanej w pamiêci.
+
+Konieczne by³o dodatkowo dorobienie bardziej uniwersalnej procedury relokuj¹cej adresy wewn¹trz playera i podstawienie jej pod star¹.
+
+Ostatni¹ poprawk¹ jak¹ dokona³em by³o zaznaczenie w tekœcie info na dole paska numeru wersji CMC na 2.2 (od numeru wersji playera; wczeœniejsze to: player 2.0 Janusza Pelca, 2.1 wersja poprawiona Jaskiera, która nie zosta³a, z tego co wiem, zaimplementowana do ¿adnej z "nieoficjanych" wersji kompozera).
+
+Nic wiêcej poza tym nie zosta³o zmienione (poza zmianami adresów odwo³añ z innych obszarów do tej czêœci któr¹ podmieni³em, czego oczywiœæie dopilnowa³ sam asembler na przerobionym kodzie "Ÿród³owym" pozyskanym dziêki narzêdziu DIS6502 - przy okazji podziêkowania dla TeBe), nic obciête.
+
+Odnoœnie tej wersji playera w stosunku do wersji 2.1 (Jaskiera), którego jest (tak bym chcia³ to postrzegaæ), mam nadziejê, godn¹ nastêpczyni¹, zachowane zosta³y nastêpuj¹ce zmiany wprowadzone w tamtej wersji:
+
+- usuniêcie dwóch zasadniczych b³êdów playera (w uproszczonym opisie i niepe³nym znaczeniu) "odczytu strony $FF"
+- $d20f zamiast $d21f
+- pe³ne odtwarzanie zawartoœci strony zerowej sprzed wywo³ania procedury (czêœæ init oryginalnej procedury jedno z dwóch u¿ywanych s³ów na niej nie odtwarza³a)
+- wprowadzenie kontroli poprawnoœci przy wywo³ywaniu z init (rA:=$20+kana³, rY:=instrument, rX:=numer_dŸwiêku) odgrywania pojedyñczego dŸwiêku "poza muzyczk¹"
+- identyczne uszeregowanie zmiennych (player + offset : dostêp do tej samej zmiennnej, np. czest)
+- procedura podpisana swoj¹ nazw¹ - etykieta (ten sam offset co w wersji 2.1)
+
+Zmiany i nowe funkcje, których nie zdecydowa³em siê kontynuowaæ, powracaj¹c do w³aœciwoœci playera 2.0:
+
+- wycofanie siê z mo¿liwoœci podmiany adresu rejestrów pokeya z poziomu wywo³ania (na np. drugi pokey) : rA:=$3x (x>0), rX\rY:= m³.\st.po³ówka adresu pokeya (lub dowolnego innego obszaru pamiêci), przy zachowaniu tradycyjnego znaczennia jeœli rA:=$30 (x=0), rX:= tempo
+- wycofanie siê z przestawienia kodu dla basica sprzed tablic (pozostaj¹ na koñcu jak w wersji 2.0)
+
+Innowacje w stosunku do wersji poprzednich:
+
+- instrumenty slide up/down mog¹ teraz przekraczaæ granicê pojemnoœci bajta ($FF<->0) przy zmianach czêstotliwoœci (nie s¹ "sztucznie" wyciszane w takim przypadku)
+
+Przygotowa³em Atr na którym znajduj¹ siê (poza dosem) przerobiona wersja CMC (CMC22.COM), oryginalna wersja CMC (CMC20.COM) i prawie oryginalna muzyczka Lasermania (LASER.CMC). Dwie ostatnie pozycje s¹ po to, aby zademonstrowaæ z³e dzia³anie muzyczki przez zasadnicze b³êdy procedury odgrywaj¹cej, które spostrzeg³ i poprawi³ Jaskier.
+Muzyczka z Lasermanii ma wiêc jedn¹ drobn¹ "poprawkê". Na nieu¿ywanym (w dodatku pustym) istrumencie o numerze 21 ma wstawion¹ wartoœæ $46 w drug¹ (od góry) dan¹ (to tak¿e druga wartoœæ opisuj¹ca ten instrument w module) - pozosta³e wartoœci i obwiednie pozostaj¹ wyczyszczone jak dla instrumentu pustego.
+Tak przerobiona muzyczka bêdzie Ÿle odtwarzana pod ka¿d¹ znan¹ mi wersj¹ kompozera (bo wszystkie dzia³aj¹ na oryginalnym playerze Pelca) poza t¹, któr¹ w³aœnie opisujê (za co odpowiadaj¹ poprawki Jaskiera), co proponujê przy tej okazji sprawdziæ, ¿eby siê przekonaæ i¿ b³êdy nie s¹ li tylko mityczne.
+Proponujê tak¿e po za³adowaniu muzyczki z Lasermanii przewin¹æ instrumenty do tego o numerze 15 i wywo³aæ dŸwiêk D-6 (kliwisz O przy ustawionych na klawiaturze oktawach 4|5) i sprzwdziæ t¹ now¹ specyfikacjê "poprawionego" dzia³ania instumentów z slide up/down. przy oryginalnym playerze dŸwiêk jest szybko przycinany, przy playerze 2.2 dŸwiêk wybrzmiewa na pe³nej d³ugoœci.
+
+Mo¿liwe ¿e o czymœ zapomnia³em napisaæ (nie mam zwyczaju sporz¹dzaæ notatek, a pamiêæ mam wyj¹tkowo nietrwa³¹). Nie wiem czy player nie zawiera swoich (ukrytych dla mnie) b³êdów. Gdyby zasz³a potrzeba i ktoœ coœ zauwa¿y³ (zak³adam na chwilê, ¿e ktoœ zechce tego¿ pou¿ywaæ, chocia¿ wiadomym jest ¿e czas CMC nale¿y ju¿ do przesz³oœci), to oczywiœcie bêdê w przysz³oœci zainteresowany poprawkami takich ewentualnych b³êdów.
+
+Za³¹czam Atr w zipie.
+
+Marek "Marok" Sasnal

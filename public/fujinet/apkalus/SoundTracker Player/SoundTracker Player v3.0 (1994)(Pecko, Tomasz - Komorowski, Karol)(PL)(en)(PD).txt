@@ -1,0 +1,28 @@
+
+
+     --------------------
+      Sound-Tracker 3.0: 
+     --------------------
+
+- a *.MD8 player by Our 5oft, taken
+  from the Intel Outside Demo (PD);
+- supports any 64k XL/XE Atari and
+  uses up to 48k RAM for *.MD8 files;
+- alas, the program is Reset-proof,
+  thus power-off to quit the program;
+
+Key commands:
+*************
+
+- first press SPACE for a DIR of #1;
+- next use +* to choose a *.MD8 file;
+- then press RETURN to load the file;
+- finally press SPACE to playback;
+- press SHIFT to stop playing;
+- press ESC for a restart/new dir.;
+- start over again with Space key...
+
+That's all. Of course not all *.MD8
+files will fit into 64k memory. Thus
+use an XE-MD8-Player for more RAM...
+

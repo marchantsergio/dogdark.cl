@@ -8,6 +8,7 @@ import Panel from '../views/Panel.vue'
 import Admin from '../views/Admin.vue'
 import Admart from '../views/Admart.vue'
 import Admnart from '../views/Admnart.vue'
+import Admeart from '../views/Admeart.vue'
 
 
 const routes = [
@@ -20,6 +21,7 @@ const routes = [
   { path: '/adm/admin', name: 'Admin', component: Admin },
   { path: '/adm/admart', name: 'Admart', component: Admart },
   { path: '/adm/admnart', name: 'Admnart', component: Admnart },
+  { path: '/adm/admeart/:id', name: 'Admeart', component: Admeart },
 ]
 
 const router = createRouter({

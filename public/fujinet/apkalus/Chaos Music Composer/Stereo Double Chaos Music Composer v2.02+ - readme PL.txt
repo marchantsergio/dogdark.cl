@@ -1,0 +1,27 @@
+Obs³uga jest nastêpuj¹ca:
+
+Shift + Esc : wejœcie do menu zarz¹dzania plikami z dysku
+Help (na emulatorze 'End'): prze³¹czanie mode: normal | double (ma wp³yw na brzmienie instumentów)
+Shift + 1-6 : kana³ (1-6) zamilknie lub odzyska "g³os" - prze³¹cznik
+Okno song:
+- inverse - zmiana trybu normal/double play
+- ctrl+e - o piêæ linii w górê
+- ctrl+d - o piêæ linii w dó³
+- ctrl+c - skok do pozycji 0 (chyba)
+- ctrl+n - zmiana nazwy modu³u
+- ctrl+s - zapis na kasecie w formacie turbo
+- ctrl+l - odczyt z kasety w turbo
+- shift+esc - wejœcie do menu dyskowego
+
+Dodatkowe komendy w songu:
+- shift+v: zmiana g³oœnoœci kana³u - V: xx ustawia g³oœnoœæ wszystkich kana³ów, V: xx yy ustawia g³oœnoœæ wszystkich kana³ów pierwszego pokeya na xx, drugiego na yy (wartoœci podaje siê dziesiêtnie 00..15)
+- shift+m: zmiana trybu odtwarzania - M: 00 to normal, M: 01 to double
+- shift+p: pauza - P: xx yy pauzuje odtwarzanie na czas podany w dziesiêtych czêœciach sekundy (ale jak to podaæ, skoro wartoœci w polach songu mog¹ byæ 00..63?)
+
+W menu narzêdzi dyskowych warto uwa¿aæ na to, co siê wciska, bo:
+- shift <,> - zmiana napêdu
+- 1,2,3,4 to fromatowanie, usuwanie, lock, unlock
+- space - katalog
+- strza³ki - przemieszczaj¹ kursor po katalogu
+- return - ³aduje z dysku wybrany utwór
+- Ctrl-S - zapisuje utwór na dysk

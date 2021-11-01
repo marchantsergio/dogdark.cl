@@ -1,0 +1,211 @@
+MPE v2.3 MIDI Pattern Editor , version 2.3             Radek Štìrba, (c) RASTER 1995
+
+Tento editor slouží ke skládání hudby patternovým zpùsobem. Hudba se skládá z jednotlivých èástí (patternù) a tyto jsou pak v požadovaném poøadí pøehrávány.
+
+Základní údaje:
+Nutné minimální vybavení:
+* Poèítaè Atari XE/XL kompatibilní (64KB RAM)
+* MIDI interface (pøes sériový vstup/výstup - standardním sériovým konektorem)
+* Klávesový hudební nástroj s MIDI (standardní MIDI norma)
+Kapacita editoru:
+* Song má 256 krokù
+* 32 samplù (specifikace nástroje a dynamiky, možnost akordù)
+* 128 patternù (pattern se skládá ze 4 trackù a má 32 taktù)
+Další informace:
+* Pro výstup se používají 4 MIDI kanály (0 až 3)
+* Pro vstup libovolný kanál (Dynamika úhozu klávesnice není sledována)
+* Ovládání programu se provádí systémem "horkých" kláves, tj. pøímo stlaèením klávesy vyvoláte pøíslušnou funkci.
+
+Režim PATTERN:
+Tento režim slouží k vlastnímu zápisu not do jednotlivých patternù, ze kterých se celá hudba skládá. Øádky pøedstavují takty, ve ètyøech sloupcích jsou tracky. Každý track má pevnì pøiøazený MIDI kanál (0 až 3) a noty, umístìné v nìm, budou vyslány právì pro tento kanál.
+Každá nota zaène znít v okamžiku, kdy na ni program narazí a zní dál. Její ukonèení nastane až v okamžiku, kdy je nalezen symbol "( )" nebo nová nota. 
+Pøíklad:
+00 |C-3 00|E-3 01|--- 00|C-4 05|
+01 |--- 00|--- 00|G-3 07|--- 00|
+02 |--- 00|( ) 00|--- 00|spd 09|
+03 |( ) 00|--- 00|--- 00|( ) 00|
+04 |end 00|--- 00|--- 00|--- 00|
+ .
+ .
+
+0.tý kanál:
+Zaène znít nota C-3 (specifikace nástroje atd. je dána samplem èíslo 00) a zní po dobu 3 taktù. Ve ètvrtém taktu (øádek 03) už nezní nic. Symbol "end" v øádku 04 zpùsobí, že celý tento pattern má dohromady 4 takty.
+1.kanál:
+Zaène znít nota E-3 (specifikace nástroje atd. je dána samplem èíslo 01) a zní po dobu 2 taktù. Od tøetího taktu už nezní nic.
+2.kanál:
+Jeden takt mezera - nezní nic. Ve druhém taktu zaène znít nota G-3 (sampl 07) a bude znít poøád dál (i po ukonèení tohoto patternu). K jejímu ukonèení dojde až v okamžiku, kdy ji pøeruší jiná nota nebo symbol "( )" (v tomto tracku).
+3.kanál:
+Zaène znít nota C-4 (sampl 05) a zní 3 takty. Symbol "spd 09" v øádku èíslo 02 zpùsobí zmìnu rychlosti pøehrávání (všech trackù!). Od této chvíle bude jeden takt pøedstavovat dobu 9/50 sekundy. "spd" mùže být umístìno v libovolném tracku (kde máte místo) a nová rychlost platí až do zmìny novým "spd".
+
+
+G
+Pøechod do režimu SONG.
+M
+Pøechod do režimu SAMPLE.
+Inverse
+Zapnutí/vypnutí pøíjmu dat z klávesnice nástroje.
+nahoru
+Posun nahoru (o takt zpìt).
+dolù
+Posun dolù (o takt vpøed).
+vlevo
+Posun vlevo (také pøechod na levìjší track).
+vpravo
+Posun vpravo (také pøechod na pravìjší track).
+Tab
+Pøechod na pravìjší track.
+Return
+Pøechod na zaèátek patternu.
+0..9,A..F
+Zápis èísla na aktuální pozici kurzoru (HEX - šestnáctková soustava).
+Del
+Smazání obou cifer èísla na akt. pozici a posun dolù.
+Shift+nahoru
+Shift+dolù
+Nastavení aktuálního samplu (zmìna po 1).
+Shift+vlevo
+Shift+vpravo
+Nastavení aktuálního patternu (zmìna po 1).
+Control+vlevo
+Control+vpravo
+Nastavení aktuálního patternu (zmìna po 16).
+L
+Nastavení tónu na nástroji (na kanálu Ach) a pøehrání aktuálního samplu (po dobu držení klávesy) v notì C-5 (podle údajù v aktuálním samplu).
+I
+Inicializace délky taktu (pro pøehrávku). Provede nastavení hodnotou z 0.-tého samplu (viz. dále).
+T
+Zápis "( )" na akt. místo. Tento symbol znamená ukonèení právì znìjících tónù v daném tracku (tj. puštìní pøíslušných kláves).
+S
+Zápis "spd" na akt. místo. Èíslo udané za tímto symbolem oznaèuje novou hodnotu pauzy pro jeden takt (platí už i pro takt, ve kterém tento symbol je.
+N
+Zápis "end" do 0.-tého tracku. Oznaèuje konec patternu (tento symbol píšeme do prvního již neplatného taktu).
+Používá se pro patterny, které mají mít ménì než standardních 32 taktù. (Program "end" sleduje pouze v 0.tracku , v ostatních ho ignoruje!). 
+mezerník
+Zápis "--- 00" na aktuální místo a posun dolù.
+
+Pøehrávání skladby:
+O
+Spuštìní pøehrávky aktuálního patternu (od akt. taktu).
+P
+Spuštìní pøehrávky skladby od zaèátku patternu podle nastaveného aktuálního øádku v režimu SONG (pak pokraèuje dalšími øádky).
+R
+Spuštìní pøehrávky celé skladby (od zaèátku SONGu).
+Libovolná klávesa
+Pøerušení pøehrávky.
+
+Záznam z klávesnice nástroje:
+Jestliže je zapnut pøíjem dat z klávesnice nástroje (viz. inverze), pak se pøi každém stlaèení klávesy pøíslušná nota zapíše na aktuální místo (tj. do aktuálního patternu, tracku a taktu). Následuje posun na další øádek. Toto platí i pøi souèasném pøehrávání skladby (nebo patternu), takže je umožnìn i ZÁZNAM V REÁLNÉM ÈASE!!!
+
+Blokové operace:
+Shift+T
+Uložení aktuálního tracku do bufferu.
+Control+T
+Pøepsání aktuálního tracku trackem z bufferu.
+Shift+P
+Uložení aktuálního patternu do bufferu.
+Control+P
+Pøepsání aktuálního patternu patternem z bufferu.
+Shift+Control+del
+Smazání aktuálního tracku.
+Shift+Control+clr
+Smazání aktuálního patternu.
+
+
+Záznamové a ostatní operace:
+Shift+Control+W
+Zapsání celé skladby na disk (vèetnì songu a samplù). 
+Poèet patternù bude odvozen z nejvyššího použitého èísla v SONGu.
+Shift+Control+R
+Naètení skladby z disku (pøepíše momentální skladbu).
+Shift+Control+D
+Smazání všeho (songu, všech samplù i patternù).
+Shift+Control+Q
+Opuštìní programu - pøechod do DOSu.
+
+Režim SONG:
+Tento režim slouží k sestavení skladby z jednotlivých patternù. Èísla na jednotlivých øádcích znamenají:
+* 00 až 7f ..èíslo patternu, který má být hrán.
+* fe ..konec skladby (+ ukonèení všech znìjících tónù).
+* ff ..pøechod na 0.tý øádek SONGu a pokraèování v pøehrávce.
+
+Esc
+Návrat do režimu PATTERN.
+Nahoru,dolù,vlevo, vpravo
+Posun pøíslušnými smìry.
+Bk Sp
+Posun všeho pod tímto øádkem o jednu pozici nahoru.
+>
+Posun všeho pod tímto øádkem (vèetnì tohoto) o jednu pozici dolù (místo pro vkládání).
+0..9,A..F
+Zápis èísla na aktuální pozici.
+Return
+Pøechod na nultý øádek (tj. na zaèátek songu).
+Tab
+Pøechod na nejbližší další osmý øádek.
+
+Režim SAMPLE:
+Tento režim slouží k zadefinování parametrù pro stlaèovanou notu. Umožòuje zadat nástoj, kterým má být nota hrána, její hlasitost a pøípadnì i akord, odvozený od této noty.
+Každý sampl obsahuje 8 parametrù, které znamenají:
+00
+00
+Nechávejte =00 (rezervováno pro pøípadné rozšíøení)
+01
+To 00
+Nástroj. Èíslo 00 až 7f oznaèuje, kterým nástrojem má být nota hrána.
+02
+Ba 00
+Èíslo banky (Jen má-li nástroj více bank. Jinak =0). Pozn. Protože pøepínání bank se nástroj od nástroje liší, v základní verzi tato funkce nefunguje.
+03
+V1 00
+Dynamika úhozu (hlasitost) 1. noty (tj. noty zapsané v patternu). Povolený rozsah 01 až 7f (00 znamená ticho).
+04
+2+ 00
+Transpozice 2. noty od 1.Vyjadøuje posun (v pùltónech). 
+Doplòkové èíslo: ... , fd=-3 , fe=-2, ff=-1, 00=+0, 01=+1, 02=+2, ...
+05
+V2 00
+Dynamika úhozu (hlasitost) 2.noty. Povolený rozsah 01 až 7f (00 znamená, že bude znít jen 1.nota).
+06
+3+ 00
+Transpozice 3. noty od 1. Vyjadøuje posun (v pùltónech).
+07
+V3 00
+Dynamika úhozu (hlasitost) 3.noty. Povolený rozsah 01 až 7f (00 znamená, že bude znít jen 1. a 2.nota).
+
+Poznámka: Speciální výjimku tvoøí sampl èíslo 00, který se liší parametrem 00. U nìj toto èíslo znamená rychlostní údaj pro skladbu (údaj v 1/50 sekundy). Pøi spuštìní pøehrávky celé skladby (klávesou 'R') bude provedeno nastavení aktuální doby pro jeden takt touto hodnotou. Ke zmìnì této doby dojde pouze v pøípadì, že bude pøehrán nìjaký pattern, ve kterém je symbol "spd" s jinou hodnotou.
+Inicializaci hodnoty pro délku taktu mùžete rovnìž provést klávesou 'I'.
+
+esc
+Návrat do režimu PATTERN.
+nahoru,dolù
+Posun nahoru a dolù. Posunutím se do oblasti pro jiný sampl bude provedeno nastavení tohoto samplu jako aktuálního.
+vlevo,vpravo
+Posun vlevo a vpravo.
+0..9,A..F
+Zápis èísla na aktuální pozici.
+return
+Pøechod na nultý øádek (tj. na zaèátek nultého samplu).
+tab
+Pøechod na nejbližší další osmý øádek (tj. na další sampl).
+L
+Pøehrání aktuálního samplu. Funguje stejnì jako 'L' v režimu PATTERN
+
+Poznámky a dùležitá upozornìní:
+
+1.) Nikdy nestlaèuj RESET
+Pro opuštìní programu používej zásadnì funkci Shift+Control+Q a nikdy ne RESET tlaèítko.
+Komunikace s MIDI nástrojem funguje na principu zasílání zpráv - pokud stisknete RESET, násilnì pøerušíte program a mùže dojít k tomu, že nìkterá z tìchto zpráv nebude vpoøádku doruèena. To mùže mít za následek vznik tzv. "visících" tónù (Na Vašem nástroji zùstanou nìkteré tóny znít). Východiskem z tohoto stavu pak mùže být tlaèítko RESET na hudebním nástroji (pokud je ovšem tímto tlaèítkem vybaven) nebo vypnutí a znovuzapnutí MIDI režimu. U nìkterých nástrojù je jedinou pomocí z této situace vypnutí a znovuzapnutí celého nástroje.
+
+2.) Pøehrávka skladby
+K regulernímu spuštìní pøehrávky celé skladby používejte zásadnì funci 'R'. Pouze tato funkce provede pøed samotným spuštìním inicializaci délky taktu (0.-tým parametrem v samplu èíslo 00 - viz. režim SAMPLE). Pøi spoušnìní funkcemi 'P' nebo 'O' je pouze pøehrávána pøíslušná èást bez tohoto nastavení a délka taktu je ponechána tak, jak zùstala z pøedchozí pøehrávky.
+
+3.) Spuštìní MPE
+Po spuštìní MPE není provedeno inicializaèní vyèištìní pamìti. Proto pøed zapoèetím práce proveïte funkci "Delete all" (Control+Shift+D). Tato drobná skuteènost umožòuje pøi pøípadném zhroucení programu jeho opìtovné naètení bez ztráty (nebo jen s malou ztrátou nìjaké èásti) sestavované skladby.
+
+4.) Pøenositelnost modulù (.MPE)
+Vytvoøená hudba se ukládá ve formátu modulu .MPE , obsahujícího song, všechny samply a potøebné (ve skladbì používané) patterny. Nelze ovšem zajistit, aby pøi pøehrávce modulu, vytvoøeného na daném typu nástroje, znìl tento modul stejnì i na jiném hudebním nástroji. Problémy spoèívají zejména v rozdílu mezi pøiøazením zvukových vzorkù jednotlivým èíslùm na rùzných MIDI nástrojích. Další odlišností mùže být rùznì interpretovaná dynamika úhozu, zpùsobena použitím jiné køivky intenzity hlasitostí pro dané hodnoty dynamiky. Toto lze s trochou šikovnosti opravit zmìnami pøíslušných hodnot v používaných samplech (tz. zmìnit èíslo nástroje tak, aby odpovídalo požadovanému; nebo zmìnit hodnotu pro dynamiku tak, aby pøíslušný hlas znìl odpovídající hlasitostí).
+Nejvìtší potíže však jsou s použitými bubnovými vzorky, protože jednotlivé noty pak znamenají rùzné bicí nástroje. Úprava modulu pro jiný MIDI nástroj je v tomto ohledu velmi komplikovaná a vyžaduje velké úsilí (je tøeba zmìnit jednotlivé noty ve všech patternech).
+
+5.) Umístìní programu v pamìti
+Hudební editor MPE je v pamìti umístìn od adresy $1F00 a mìl by tedy pracovat pod vìtšinou obvykle používaných DOSù (nebo TOSù). Vlastní pracovní používaná oblast je celý zbytek konvenèní pamìti, tj. až po adresu $BFFF (tedy vèetnì pamìti pod BASIC ROM). Oblast pod ROM ($C000 až $FFFF) už využívána není a je ji tedy možné obsadit ramdiskem.
+
