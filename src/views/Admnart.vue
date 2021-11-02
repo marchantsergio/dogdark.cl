@@ -26,7 +26,7 @@
                         language: 'es',
                         height:400,
                         external_filemanager_path:'/filemanager/',
-                        filemanager_title:'Responsive Filemanager',
+                        filemanager_title:'Dogdark Filemanager',
                         external_plugins: { 'filemanager' : '/filemanager/plugin.min.js'}
                         }"
                         v-model="contenido"
@@ -116,30 +116,37 @@ export default {
             this.v$.$validate()
             if(!this.v$.$error)
             {
-                axios
-                .post(
-                    Global.urirl + 'insertar/',
-                    {
-                        opcion:1,
-                        titulo: this.titulo,
-                        contenido : this.contenido,
-                        estado: this.estado,
-                        categoria: this.categoria,
-                        seo: this.seo,
-                        autor: this.autor
-                    }
-                )
-                .then(
-                    res=>{
-                        if(res.status==200)
+                if(this.estado==""){
+                    this.merror = "Publicar sin opción"
+                }else if(this.categoria==""){
+                    this.merror = "Categoría sin opción"
+                }else if(this.seo==""){
+                    this.merror = "Seo sin opción"
+                }else{
+                    axios
+                    .post(
+                        Global.urirl + 'insertar/',
                         {
-                            //console.log(res.data)
-                            this.$router.push('/adm/admeart/' + res.data)
-                        }else{
-                            this.merror = "Error de Data"
+                            opcion:1,
+                            titulo: this.titulo,
+                            contenido : this.contenido,
+                            estado: this.estado,
+                            categoria: this.categoria,
+                            seo: this.seo,
+                            autor: this.autor
                         }
-                    }
-                )
+                    )
+                    .then(
+                        res=>{
+                            if(res.status==200)
+                            {
+                                this.$router.push('/adm/admeart/' + res.data)
+                            }else{
+                                this.merror = "Error de Data"
+                            }
+                        }
+                    )
+                }
             }
         }
     },

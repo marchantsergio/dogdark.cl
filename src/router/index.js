@@ -21,7 +21,7 @@ const routes = [
   { path: '/adm/admin', name: 'Admin', component: Admin },
   { path: '/adm/admart', name: 'Admart', component: Admart },
   { path: '/adm/admnart', name: 'Admnart', component: Admnart },
-  { path: '/adm/admeart/:id', name: 'Admeart', component: Admeart },
+  { path: '/adm/admeart', name: 'Admeart', component: Admeart },
 ]
 
 const router = createRouter({
